@@ -4,6 +4,7 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { InformationRoutingModule } from "./information-routing.module";
 import { InformationComponent } from "./information.component";
 import { EodyDetailComponent } from "./details/eody-details.component";
+import { InfoDetailsComponent } from "./info-details/info-details.component";
 
 @NgModule({
     imports: [
@@ -12,7 +13,8 @@ import { EodyDetailComponent } from "./details/eody-details.component";
     ],
     declarations: [
         InformationComponent,
-        EodyDetailComponent
+        EodyDetailComponent,
+        InfoDetailsComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA

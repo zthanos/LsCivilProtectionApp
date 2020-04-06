@@ -4,8 +4,8 @@ import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { MapsComponent } from "./maps.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "mapview" },
-    { path: "mapview", component: MapsComponent },
+    { path: "", redirectTo: "mapsview" },
+    { path: "mapsview", component: MapsComponent },
 ];
 
 @NgModule({

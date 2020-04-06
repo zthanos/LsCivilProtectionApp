@@ -52,8 +52,8 @@ export class InformationComponent implements OnInit {
         console.log(`Tapped on ${itemId}`); 
         console.log(this.activeRoute);
         console.log(this.activeRoute.routeConfig);
-        
-        this.routerExtensions.navigate(["../detail/" + itemId, 
+
+        this.routerExtensions.navigate(["./infodetails",// + itemId, 
         {relativeTo: this.activeRoute},
         {
             animated: true,

@@ -4,11 +4,14 @@ import { NativeScriptRouterModule } from "nativescript-angular/router";
 
 import { InformationComponent } from "./information.component";
 import { EodyDetailComponent } from "./details/eody-details.component";
+import { InfoDetailsComponent } from "./info-details/info-details.component";
 
 const routes: Routes = [
     { path: "", redirectTo: "information" },
     { path: "information", component: InformationComponent },
- //   { path: "detail/:id", component: EodyDetailComponent } 
+    { path: "detail/:id", component: EodyDetailComponent },
+    { path: "infodetails", component: InfoDetailsComponent },
+     
 ];
 
 @NgModule({

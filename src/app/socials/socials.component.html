@@ -5,13 +5,7 @@
     <RadListView id="list-view" [items]="news" marginRight="-2" separatorColor="transparent" height="100%">
         <ng-template tkListItemTemplate let-item="item">
             <StackLayout>
-                <GridLayout columns="auto,*,auto">
-                   <Image class="imgheader" col="0" src="{{ item.profileUrl }}" stretch="aspectFill" height="50">
-                    </Image>
-                    <StackLayout col="1">
-                        <Label text="{{ item.title }}" class="news-title" textWrap="true"></Label>
-                    </StackLayout>
-                </GridLayout>
+              
                 <GridLayout rows="*" backgroundColor="White">
                     <GridLayout rows="*" columns="*">
                         <Image *ngIf="item.displayImage == true" src="{{ item.urlToImage }}" stretch="aspectFill"
@@ -23,11 +17,23 @@
                         </GridLayout>
                     </GridLayout>
                 </GridLayout>
-                <StackLayout paddingTop="15" paddingBottom="20" paddingLeft="15" paddingRight="15"
-                    backgroundColor="White">
-                    <Label text="{{ item.originalMessage  }}" class="news-title" textWrap="true"></Label>
-                </StackLayout>
+                <GridLayout columns="auto,*">
+                    <Image col="0" class="imgheader" style="vertical-align:top" 
+                           col="0" src="{{ item.profileUrl }}" stretch="aspectFill" height="50">
+                    </Image>
+                    <Label col="1" text="{{ item.originalMessage  }}" class="news-title" textWrap="true"></Label>
+                </GridLayout>
             </StackLayout>
         </ng-template>
     </RadListView>
 </StackLayout>
+
+<!-- <GridLayout columns="auto,*,auto">
+    
+     <StackLayout col="1">
+         <Label text="{{ item.title }}" class="news-title" textWrap="true"></Label>
+     </StackLayout>
+ </GridLayout> -->
+
+ <!-- paddingTop="15" paddingBottom="20" paddingLeft="15" paddingRight="15"
+ backgroundColor="White"> -->

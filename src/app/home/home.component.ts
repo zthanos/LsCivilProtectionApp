@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild, Input } from "@angular/core";
+import { Component, OnInit, OnDestroy, ElementRef, ViewChild, Input } from "@angular/core";
 
 import { MapboxViewApi, Viewport as MapboxViewport, MapboxMarker } from "nativescript-mapbox";
 import { AppData } from "../shared/helpers/appdata";
@@ -9,9 +9,10 @@ import { Page } from "tns-core-modules/ui/page/page";
     templateUrl: "./home.component.html",
     styleUrls: ["./home.component.css"]
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
     mapPrepared = false;
-    BackgroundColor = AppData.GetTabColor(2);
+    bannerImage = "~/app/assets/images/banner_112.png";
+    BackgroundColor = 'black';
     private map: MapboxViewApi;
     cities: { index: number, name: string, city: string, state: string, temp: string, img: string }[] = [
         { index: 0, name: "Banff, AB", city: "Banff", state: "Alberta, Canada", temp: "21°C", img: "~/assets/images/backgrounds/korydallos-dimarxeio.png" },
@@ -23,11 +24,14 @@ export class HomeComponent implements OnInit {
     img = this.cities[0].img;
 
 
-    constructor(private page: Page, ) { }
+    constructor(private page: Page ) { }
 
     ngOnInit(): void {
         this.page.actionBarHidden = false;
 
+    }
+    ngOnDestroy(){
+     //   this.map.destroy();
     }
 
     onMapReady(args): void {
@@ -35,7 +39,17 @@ export class HomeComponent implements OnInit {
             this.map = args.map;
             const markers = MapMarkers.getMarkers();
             console.log("Markers :", markers);
-            this.map.addMarkers(markers);
+            this.map.addMarkers([
+                {
+                    id: 1,
+                    lat: 37.981139,
+                    lng: 23.645790,
+                    title: '1. Δημαρχείο Κορυδαλλού ',
+                    subtitle: 'Γρ. Λαμπράκη 240',
+                    selected:true
+                }
+             
+            ]);
         }
         this.mapPrepared = true;
 
