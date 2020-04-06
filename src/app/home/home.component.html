@@ -1,0 +1,47 @@
+<!-- <ActionBar [backgroundColor]="BackgroundColor">
+        <Label text="Home 1"></Label>
+         <Image ImageSource="~/assets/images/backgrounds/korydallosMap.png"></Image> 
+</ActionBar> -->
+
+
+<GridLayout tkMainContent class="page page-content" [backgroundColor]="BackgroundColor">
+
+    <StackLayout>
+        <!-- <ContentView height="300" width="100%">
+            <Mapbox id="homeMap" accessToken="pk.eyJ1IjoienRoYW5vcyIsImEiOiJjazhkaHc0bW4wdzZnM2xtam5xZ3RlOTZ0In0.-K2_SD1d9B9XIrFSRhOhBQ"
+                mapStyle="traffic_day" latitude="37.977" longitude="23.650" hideCompass="false" zoomLevel="14"
+                showUserLocation="false" disableZoom="false" disableRotation="false" disableScroll="false"
+                disableTilt="false" (mapReady)="onMapReady($event)">
+            </Mapbox>
+        </ContentView> -->
+        <Image ImageSource="~/app/assets/images/banner_112.png" height="200"></Image>
+         <!-- backgroundImage="~/assets/images/KorydallosMap.png"> -->
+        <GridLayout columns="auto, 45, 45, 45, 45, 45" rows="50, 50" class="center forecast">
+            <Label text="{{ temp }}" row="0" col="0" rowSpan="2" class="temp m-r-10"></Label>
+            <Label text="&#xf185;" row="0" col="1" class="fa weather"></Label>
+            <Label text="&#xf185;" row="0" col="2" class="fa weather"></Label>
+            <Label text="&#xf0c2;" row="0" col="3" class="fa-solid weather"></Label>
+            <Label text="&#xf185;" row="0" col="4" class="fa weather"></Label>
+            <Label text="&#xf043;" row="0" col="5" class="fa-solid weather"></Label>
+            <Label text="TUE" row="1" col="1" class="day"></Label>
+            <Label text="WED" row="1" col="2" class="day"></Label>
+            <Label text="THU" row="1" col="3" class="day" style="padding-left:2"></Label>
+            <Label text="FRI" row="1" col="4" class="day" style="padding-left:5"></Label>
+            <Label text="SAT" row="1" col="5" class="day"></Label>
+        </GridLayout>
+        <!-- <Label text="{{ city }}" class="center city-name"></Label>
+    <Label text="{{ state }}" class="center state-name"></Label> -->
+        <GridLayout columns="*, *, *" rows="90, 50" class="center" style="margin-top:50">
+        <Label text="&#xf1ad;" row="0" col="0" backgroundColor="#53beb1" class="fa icon icon-left m-r-10"></Label>
+        <Label text="&#xf2e7;" row="0" col="1" backgroundColor="#d16a6e" class="fa-solid icon icon-middle"></Label>
+        <Label text="&#xf3ff;" row="0" col="2" backgroundColor="#55a3bb"
+            class="fa-solid icon icon-right m-l-10"></Label>
+        <Label text="Stay" row="1" col="0" class="icon-text icon-text-left"></Label>
+        <Label text="Eat" row="1" col="1" class="icon-text icon-text-middle"></Label>
+        <Label text="Play" row="1" col="2" class="icon-text icon-text-right"></Label>
+    </GridLayout>
+        <StackLayout class="hr-light hr-top m-t-20"></StackLayout>
+
+        <StackLayout class="hr-light hr-bottom"></StackLayout>
+    </StackLayout>
+</GridLayout>

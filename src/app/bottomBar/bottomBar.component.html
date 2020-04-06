@@ -1,0 +1,23 @@
+<GridLayout height="60" verticalAlignment="bottom">
+	<GridLayout columns="*, *, *, *, *" height="60" backgroundColor="#0D0D12">
+		<GridLayout #tabHighlight col="0" backgroundColor="#F8A200"></GridLayout>
+		<GridLayout col="0" (tap)="selectTab(0)" >
+			<Label text="Home"></Label>
+            <Image src="font://&#xf015;" class="fas"></Image>
+			<!-- <Image #image1 src="~/app/assets/images/dashboard.png" height="40" width="40"></Image> -->
+		</GridLayout>
+		<GridLayout col="1" (tap)="selectTab(1)">
+			<Image #image2 src="~/app/assets/images/dashboard.png" height="40" width="40"></Image>
+		</GridLayout>
+		<GridLayout col="2" (tap)="selectTab(2)">
+			<Image #image3 src="~/app/assets/images/dashboard.png" height="40" width="40"></Image>
+		</GridLayout>
+		<GridLayout col="3" (tap)="selectTab(3)">
+			<Image #image4 src="~/app/assets/images/dashboard.png" height="40" width="40"></Image>
+		</GridLayout>
+		<GridLayout col="4" (tap)="selectTab(4)">
+			<Image #image5 src="~/app/assets/images/dashboard.png" height="40" width="40"></Image>
+		</GridLayout>
+	</GridLayout>
+
+</GridLayout>

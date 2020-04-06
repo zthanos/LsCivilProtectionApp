@@ -1,0 +1,15 @@
+<!-- <ActionBar>
+    <Label text="Home 1"></Label>
+</ActionBar> -->
+
+<GridLayout tkMainContent class="page page-content" [backgroundColor]="BackgroundColor">
+
+    <ContentView height="500" width="100%">
+        <Mapbox id="mapinmap" accessToken="pk.eyJ1IjoienRoYW5vcyIsImEiOiJjazhkaHc0bW4wdzZnM2xtam5xZ3RlOTZ0In0.-K2_SD1d9B9XIrFSRhOhBQ"
+            mapStyle="traffic_day" latitude="50.467735" longitude="13.427718" hideCompass="true" zoomLevel="12"
+            showUserLocation="false" disableZoom="false" disableRotation="false" disableScroll="false"
+            disableTilt="false" (mapReady)="onMapReady($event)">
+        </Mapbox>
+    </ContentView>
+
+</GridLayout>
