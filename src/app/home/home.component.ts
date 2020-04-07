@@ -10,6 +10,8 @@ import { Page } from "tns-core-modules/ui/page/page";
     styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit, OnDestroy {
+  //  @ViewChild("map") public mapbox: ElementRef;
+    
     mapPrepared = false;
     bannerImage = "~/app/assets/images/banner_112.png";
     BackgroundColor = 'black';
@@ -35,6 +37,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     onMapReady(args): void {
+        console.log("!!!!!!!!!!!!!!!!!on MapReady ",args)
         if (!this.mapPrepared) {
             this.map = args.map;
             const markers = MapMarkers.getMarkers();

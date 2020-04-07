@@ -23,10 +23,10 @@ export class EodyDetailComponent implements OnInit {
         private routerExtensions: RouterExtensions,
         private page: Page,
         private dataService: DataService) {
-
+        console.log("######################## bmpike")
         this.items = this.dataService.getItems();        
 
-        this.page.actionBarHidden = true;
+        this.page.actionBarHidden = false;
 
         this.pageRoute.activatedRoute.pipe(
             switchMap(activatedRoute => activatedRoute.params)

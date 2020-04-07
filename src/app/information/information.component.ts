@@ -5,6 +5,7 @@ import { Item, Category } from "../shared/models/eody.model";
 import { DataService } from "../shared/data.service";
 import { RouterExtensions } from "nativescript-angular";
 import { Router, ActivatedRoute } from "@angular/router";
+import { Page } from "tns-core-modules/ui/page/page";
 
 declare const IQKeyboardManager: any;
 
@@ -37,32 +38,38 @@ export class InformationComponent implements OnInit {
     selectedTabview = 0;
     items: Array<Item>;
     categories: Array<Category>;
-    
+
     news: DataItem[];
 
     actionAndroid;
 
-    constructor(private activeRoute: ActivatedRoute, private routerExtensions: RouterExtensions, private dataService: DataService) {
+    constructor(private activeRoute: ActivatedRoute,
+        private page: Page,
+        private router: Router,
+        private routerExtensions: RouterExtensions,
+        private dataService: DataService) {
         this.actionAndroid = isAndroid;
         this.items = this.dataService.getItems();
         this.categories = this.dataService.getCategories();
     }
-   
+
     showItem(itemId) {
-        console.log(`Tapped on ${itemId}`); 
+        console.log(`Tapped on ${itemId}`);
         console.log(this.activeRoute);
         console.log(this.activeRoute.routeConfig);
-
-        this.routerExtensions.navigate(["./infodetails",// + itemId, 
-        {relativeTo: this.activeRoute},
-        {
-            animated: true,
-            transition: {
-                name: "slideTop",
-                duration: 380,
-                curve: "easeIn"
-            }
-        }]);
+        // this.page.nativeView("infodetails");
+        console.log("!!!!!!!!!", this.router.url );
+        this.router.navigate(["information/detail/" + itemId, 
+            { relativeTo: this.activeRoute },
+            // {
+            //     animated: true,
+            //     transition: {
+            //         name: "slideTop",
+            //         duration: 380,
+            //         curve: "easeIn"
+            //     }
+            // }
+        ]);
     }
 
     categoryIcon(itemCategory) {

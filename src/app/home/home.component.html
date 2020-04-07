@@ -43,7 +43,7 @@
 
         <StackLayout class="hr-light hr-bottom"></StackLayout>
         <ContentView height="300" width="100%">
-            <Mapbox id="homeMap" accessToken="pk.eyJ1IjoienRoYW5vcyIsImEiOiJjazhkaHc0bW4wdzZnM2xtam5xZ3RlOTZ0In0.-K2_SD1d9B9XIrFSRhOhBQ"
+            <Mapbox #map id="homeMap" accessToken="pk.eyJ1IjoienRoYW5vcyIsImEiOiJjazhkaHc0bW4wdzZnM2xtam5xZ3RlOTZ0In0.-K2_SD1d9B9XIrFSRhOhBQ"
                 mapStyle="traffic_day" latitude="37.977" longitude="23.650" hideCompass="false" zoomLevel="14"
                 showUserLocation="false" disableZoom="false" disableRotation="false" disableScroll="false"
                 disableTilt="false" (mapReady)="onMapReady($event)">
