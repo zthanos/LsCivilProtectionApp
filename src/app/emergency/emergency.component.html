@@ -1,50 +1,60 @@
-<!-- <ActionBar class="action-bar">
-    <Label text="Latest Stories" class="action-bar-label"></Label>
-    
-</ActionBar> -->
+<ActionBar>
+    <StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
+        <Label text="Πολιτική Προστασία Δήμος Κορυδαλλού" class="action-label"></Label>
+        <Image src="res://nativescript_logo" class="action-image"></Image>
+    </StackLayout>
+</ActionBar>
 
-
-<StackLayout class="page page-content" backgroundColor="#4A9F6E">
-    <Label textWrap="true" class="body m-20" text="Στην Ελλάδα, το 112 λειτουργεί όλο το 24ωρο, 7 ημέρες την εβδομάδα και συνδέει τον καλούντα, ανάλογα με το περιστατικό έκτακτης ανάγκης που αυτός αναφέρει με:">
+<StackLayout class="page page-content">
+    <Label textWrap="true" class="body m-20"
+        text="Στην Ελλάδα, το 112 λειτουργεί όλο το 24ωρο, 7 ημέρες την εβδομάδα και συνδέει τον καλούντα, ανάλογα με το περιστατικό έκτακτης ανάγκης που αυτός αναφέρει με:">
     </Label>
-    <Button class="btn btn-primary" text="την Αστυνομία"></Button>
-    <Button class="btn btn-primary" text="τo Πυροσβεστικό Σώμα"></Button>
-    <Button class="btn btn-primary" text="το ΕΚΑΒ"></Button>
-    <Button class="btn btn-primary" text="το Λιμενικό Σώμα"></Button>
-    <Button class="btn btn-primary"
-        text="την Εθνική Τηλεφωνική Γραμμή SOS 1056"></Button>
-    <Button class="btn btn-primary"
-        text="την Ευρωπαϊκή Γραμμή για τα εξαφανισμένα παιδιά 116000">
-    </Button>
-</StackLayout>
-
-
-<!-- <StackLayout class="page">
-
-  
-
-    <RadListView id="list-view" [items]="news" marginRight="-2"
-        separatorColor="transparent" height="100%">
-        <ng-template tkListItemTemplate let-item="item">
-            <StackLayout>
-                <GridLayout rows="*" backgroundColor="White">
-                    <GridLayout rows="*" columns="*">
-                        <Image src="{{ item.urlToImage }}" stretch="aspectFill"
-                            height="200"></Image>
-                        <GridLayout verticalAlignment="top">
-                            <StackLayout backgroundColor="#bc3b4e77">
-                                <Label text="{{ item.source.name }}" class="news-source"></Label>
-                            </StackLayout>
-                        </GridLayout>
-                    </GridLayout>
-                </GridLayout>
-                <StackLayout paddingTop="15" paddingBottom="20" paddingLeft="15"
-                    paddingRight="15" backgroundColor="White">
-                    <Label text="{{ item.title }}" class="news-title"
-                        textWrap="true"></Label>
+    <GridLayout columns="auto,auto">
+        <StackLayout col="0" style="text-align: center;">
+            <CardView elevation="5" shadowColor="#FFFFFF" radius="15" shadowRadius="5" shadowOpacity="0" margin="20">
+                <StackLayout class="tile">
+                    <Image col="0" col="0" src="~/app/assets/images/Elas.png" height="60">
+                    </Image>
+                    <Label text=" Αστυνομία"></Label>
                 </StackLayout>
-            </StackLayout>
-        </ng-template>
-    </RadListView>
-	
-</StackLayout> -->
+            </CardView>
+            <CardView elevation="5" radius="15" shadowRadius="5" shadowOpacity="0" margin="20">
+                <StackLayout class="tile">
+                    <Image col="0" col="0" src="~/app/assets/images/EKAB_logo.png" height="60">
+                    </Image>
+                    <Label text="Ε.Κ.Α.Β."></Label>
+                </StackLayout>
+            </CardView>
+            <CardView elevation="5" radius="15" shadowRadius="5" shadowOpacity="0" margin="20">
+                <StackLayout class="tile">
+                    <Image col="0" col="0" src="~/app/assets/images/korydallos_logo_new.png" height="60">
+                    </Image>
+                    <Label text="Δημος Κορυδαλλού"></Label>
+                </StackLayout>
+            </CardView>
+        </StackLayout>
+        <StackLayout col="1">
+            <CardView elevation="5" radius="15" shadowRadius="5" shadowOpacity="0" margin="20">
+                <StackLayout class="tile">
+                    <Image col="1" src="~/app/assets/images/firedep.png" height="60">
+                    </Image>
+                    <Label text="Πυροσβεστικό Σώμα"></Label>
+                </StackLayout>
+            </CardView>
+            <CardView elevation="5" radius="15" shadowRadius="5" shadowOpacity="0" margin="20">
+                <StackLayout class="tile">
+                    <Image col="0" col="1" src="~/app/assets/images/Hellenic_Coast_Guard_logo.png" height="60">
+                    </Image>
+                    <Label text="Λυμενικό Σώμα"></Label>
+                </StackLayout>
+            </CardView>
+            <CardView elevation="5" radius="15" shadowRadius="5" shadowOpacity="0" margin="20">
+                <StackLayout class="tile">
+                    <Image col="0" col="1" src="~/app/assets/images/sos1056.jpg" height="60">
+                    </Image>
+                    <Label text="Γραμμή SOS 1056"></Label>
+                </StackLayout>
+            </CardView>
+        </StackLayout>
+    </GridLayout>
+</StackLayout>
