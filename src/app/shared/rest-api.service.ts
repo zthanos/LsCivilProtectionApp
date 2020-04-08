@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { NewsFeed, Source, SourceType } from './models/news-feed.model';
+import { DailyWeather } from './models/weather.model';
 
 
 @Injectable({
@@ -29,7 +30,7 @@ export class RestApiService {
                         description: t.TweetText,
                         urlToImage: t.MediaUrls[0],
                         url: "",
-                        originalMessage: t.OriginalTweet?t.OriginalTweet.TweetText:t.TweetText,
+                        originalMessage: t.OriginalTweet ? t.OriginalTweet.TweetText : t.TweetText,
                         displayImage: t.MediaUrls.length > 0,
                         sourceType: SourceType.Twitter,
                         publishedAt: t.CreatedAt,
@@ -41,9 +42,47 @@ export class RestApiService {
             }));
     }
 
-    getWeather(): Observable<any>{
-        const apiuri = "https://api.openweathermap.org/data/2.5/forecast?q=korydallos,gr&appid=1987914432fb4a4dec6a7505daa91d45&lang=el"
-        return this.http.get<any>(apiuri);
-      }
- 
+    getWeather(): Observable<DailyWeather[]> {
+        const apiuri = "https://api.openweathermap.org/data/2.5/forecast?q=korydallos,gr&appid=1987914432fb4a4dec6a7505daa91d45&lang=el&units=metric"
+        return this.http.get<any>(apiuri).pipe(
+            map(r => {
+                let datekey = "";
+                let response = new Array<DailyWeather>();
+                if (r != undefined) {
+                    r.list.forEach(f => {
+                        const dw = {
+                            Description: f.weather[0].description,
+                            CurrentDate: WeatherUtils.getDateTimeString(f.dt_txt),
+                            Icon: WeatherUtils.getWeatherIcon(f.weather[0].icon),
+                            Date_string: WeatherUtils.getDayOfTheWeek(f.dt),                            
+                            Temprature: Math.round(f.main.temp) + "°C"
+                        } as DailyWeather;
+                        if (datekey != WeatherUtils.getDateTimeString(f.dt_txt)) {
+                            response.push(dw);
+                            datekey = WeatherUtils.getDateTimeString(f.dt_txt);
+                        }
+                    })
+                }
+                return response;
+            })
+        );
+    }
+
+
+}
+
+class WeatherUtils {
+    static getWeatherIcon(code: string) {
+        return "https://openweathermap.org/img/wn/" + code.replace('n','d') + "@2x.png";
+    }
+    static getDateTimeString(dt) {
+        const ntstr = dt.split(' ')[0].split('-');
+        return ntstr[2] + "-" + ntstr[1] + "-" + ntstr[0]
+    }
+
+    static getDayOfTheWeek(dt:any){
+        var days = ['Κυρ','Δευ','Τρι','Τετ','Πεμ','Παρ','Σαβ'];
+        const d = new Date(dt * 1000);
+        return days[d.getDay()];    
+    }
 }

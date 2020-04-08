@@ -18,6 +18,8 @@ import { HttpClient } from "@angular/common/http";
 import { registerElement } from "nativescript-angular/element-registry";
 import { DataService } from "./shared/data.service";
 registerElement("Mapbox", () => require("nativescript-mapbox").MapboxView);
+import { CardView } from '@nstudio/nativescript-cardview';
+registerElement('CardView', () => CardView);
 
 import { BottomBarModule } from "./bottomBar/bottomBar.module";
 import { TabNavigationModule } from "./tab-navigation/tab-navigation.module";

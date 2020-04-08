@@ -1,39 +1,28 @@
-<!-- <ActionBar class="action-bar">
-    <Label text="Latest Stories" class="action-bar-label"></Label>
-</ActionBar> -->
-<StackLayout class="page">
-    <RadListView id="list-view" [items]="news" marginRight="-2" separatorColor="transparent" height="100%">
-        <ng-template tkListItemTemplate let-item="item">
+<ActionBar>
+    <StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
+        <Label text="Πολιτική Προστασία Δήμος Κορυδαλλού" class="action-label"></Label>
+        <Image src="res://nativescript_logo" class="action-image"></Image>
+    </StackLayout>
+    <!-- <NavigationButton text="Go Back" android.systemIcon="ic_menu_back"></NavigationButton>
+    <ActionItem ios.systemIcon="2" android.systemIcon="ic_menu_edit" ios.position="right"></ActionItem> -->
+</ActionBar>
+
+
+<RadListView id="list-view" [items]="news" separatorColor="transparent" height="100%">
+    <ng-template tkListItemTemplate let-item="item">
+        <CardView margin="10" elevation="1" shadowColor="#FFFFFF" radius = "1"  shadowRadius = "5" shadowOpacity="0">
             <StackLayout>
-              
-                <GridLayout rows="*" backgroundColor="White">
-                    <GridLayout rows="*" columns="*">
-                        <Image *ngIf="item.displayImage == true" src="{{ item.urlToImage }}" stretch="aspectFill"
-                            height="200"></Image>
-                        <GridLayout verticalAlignment="top">
-                            <StackLayout backgroundColor="#bc3b4e77">
-                                <Label text="{{ item.source.name }}" class="news-source"></Label>
-                            </StackLayout>
-                        </GridLayout>
-                    </GridLayout>
-                </GridLayout>
-                <GridLayout columns="auto,*">
-                    <Image col="0" class="imgheader" style="vertical-align:top" 
-                           col="0" src="{{ item.profileUrl }}" stretch="aspectFill" height="50">
+                <Label text="{{ item.source.name }}" class="emy"></Label>
+                <GridLayout columns="auto,*" style="padding-left:5;padding-right: 5;">
+                    <Image col="0" class="profile-image" col="0" src="{{ item.profileUrl }}" height="50">
                     </Image>
-                    <Label col="1" text="{{ item.originalMessage  }}" class="news-title" textWrap="true"></Label>
+                    <StackLayout col="1">
+                        <Label text="{{ item.originalMessage  }}" class="emy-emy_hnms-1" textWrap="true"></Label>
+                        <Image *ngIf="item.displayImage == true" src="{{ item.urlToImage }}" stretch="aspectFill"
+                            class="main-image"></Image>
+                    </StackLayout>
                 </GridLayout>
             </StackLayout>
-        </ng-template>
-    </RadListView>
-</StackLayout>
-
-<!-- <GridLayout columns="auto,*,auto">
-    
-     <StackLayout col="1">
-         <Label text="{{ item.title }}" class="news-title" textWrap="true"></Label>
-     </StackLayout>
- </GridLayout> -->
-
- <!-- paddingTop="15" paddingBottom="20" paddingLeft="15" paddingRight="15"
- backgroundColor="White"> -->
+        </CardView>
+    </ng-template>
+</RadListView>

@@ -64,3 +64,26 @@ Font icon class
     margin-bottom: 10px;
 }
 */
+
+ActionBar {
+    background-color:  #811a1e;
+    color: white;
+    font-size: 12;
+}
+
+.action-image {
+    width: 40;
+    height: 40;
+    vertical-align: center;
+}
+
+.action-label {
+    color: white;
+    font-size: 16;
+    font-weight: bold;
+    vertical-align: center;
+}
+
+.whiteCard {
+    background-color: #fff;
+  }
