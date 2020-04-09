@@ -6,7 +6,9 @@ import { SelectedIndexChangedEventData } from "tns-core-modules/ui/tab-view/tab-
 @Component({
     moduleId: module.id,
     selector: "tabs-page",
-    templateUrl: "./tab-navigation.component.html"
+    templateUrl: "./tab-navigation.component.html",
+    styleUrls: ["./tab-navigation.component.css"]
+
 })
 export class TabNavigationComponent implements OnInit {
     constructor(

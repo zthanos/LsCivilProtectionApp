@@ -1,0 +1,11 @@
+<CardView ripple="true" elevation="5" radius="15" shadowRadius="5" shadowOpacity="0" margin="20">
+    <StackLayout class="tile">
+        <Image col="0" col="0" src="{{ imageToDisplay }}" height="60" (tap)="callPhoneNumber()">
+        </Image>
+        <StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="center">
+            <Image col="0" src="~/app/assets/images/phone-volume-solid.png" width="16" class="fas"></Image>
+            <Label col="1" textWrap="true" text="{{ buttonLabel }}" style="margin-left: 10;"></Label>
+        </StackLayout>
+      
+    </StackLayout>
+</CardView>

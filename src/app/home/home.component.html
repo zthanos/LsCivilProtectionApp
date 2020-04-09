@@ -27,16 +27,16 @@
         <StackLayout [backgroundColor]="'#811a1e'" class="forcastParent center" height="100">
             <GridLayout columns="auto, 50, 50, 50, 50, 50" rows="40, 20" class="center">
                 <Label text="{{ currentDay.Temprature }}" row="0" col="0" rowSpan="2" class="temp m-r-10"></Label>
-                <Label text="{{ restOfTheWeek[0].Date_string }} {{ restOfTheWeek[0].Temprature }}" row="1" col="1" class="day"></Label>
-                <Label text="{{ restOfTheWeek[1].Date_string }} {{ restOfTheWeek[1].Temprature }}" row="1" col="2" class="day"></Label>
-                <Label text="{{ restOfTheWeek[2].Date_string }} {{ restOfTheWeek[2].Temprature }}" row="1" col="3" class="day" style="padding-left:2"></Label>
-                <Label text="{{ restOfTheWeek[3].Date_string }} {{ restOfTheWeek[3].Temprature }}" row="1" col="4" class="day" style="padding-left:5"></Label>
-                <Label text="{{ restOfTheWeek[4].Date_string }} {{ restOfTheWeek[4].Temprature }}" row="1" col="5" class="day"></Label>
-                <Image src="{{ restOfTheWeek[0].Icon }}" row="0" col="1" ></Image>
-                <Image src="{{ restOfTheWeek[1].Icon }}" row="0" col="2" ></Image>
-                <Image src="{{ restOfTheWeek[2].Icon }}" row="0" col="3" ></Image>
-                <Image src="{{ restOfTheWeek[3].Icon }}" row="0" col="4" ></Image>
-                <Image src="{{ restOfTheWeek[4].Icon }}" row="0" col="5" ></Image>
+                <Label text="{{ restOfTheWeek[0]?.Date_string }} {{ restOfTheWeek[0]?.Temprature }}" row="1" col="1" class="day"></Label>
+                <Label text="{{ restOfTheWeek[1]?.Date_string }} {{ restOfTheWeek[1]?.Temprature }}" row="1" col="2" class="day"></Label>
+                <Label text="{{ restOfTheWeek[2]?.Date_string }} {{ restOfTheWeek[2]?.Temprature }}" row="1" col="3" class="day" style="padding-left:2"></Label>
+                <Label text="{{ restOfTheWeek[3]?.Date_string }} {{ restOfTheWeek[3]?.Temprature }}" row="1" col="4" class="day" style="padding-left:5"></Label>
+                <Label text="{{ restOfTheWeek[4]?.Date_string }} {{ restOfTheWeek[4]?.Temprature }}" row="1" col="5" class="day"></Label>
+                <Image src="{{ restOfTheWeek[0]?.Icon }}" row="0" col="1" ></Image>
+                <Image src="{{ restOfTheWeek[1]?.Icon }}" row="0" col="2" ></Image>
+                <Image src="{{ restOfTheWeek[2]?.Icon }}" row="0" col="3" ></Image>
+                <Image src="{{ restOfTheWeek[3]?.Icon }}" row="0" col="4" ></Image>
+                <Image src="{{ restOfTheWeek[4]?.Icon }}" row="0" col="5" ></Image>
             </GridLayout>
             <label text="{{ currentDay.Description }}" class="day" ></label>    
         </StackLayout>

@@ -14,6 +14,8 @@ import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HttpClient } from "@angular/common/http";
+import { NativeScriptSvgModule } from '@jnorkus/nativescript-svg/angular';
+;
 
 import { registerElement } from "nativescript-angular/element-registry";
 import { DataService } from "./shared/data.service";
@@ -46,6 +48,7 @@ export class MyErrorHandler implements ErrorHandler {
         NativeScriptCommonModule,
         NativeScriptUIListViewModule,
         TabNavigationModule,
+        NativeScriptSvgModule,
         // NativeScriptFormsModule,
         // NativeScriptUICalendarModule,
         // NativeScriptUIChartModule,
