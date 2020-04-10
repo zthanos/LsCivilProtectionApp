@@ -3,7 +3,6 @@ import { isIOS } from "tns-core-modules/platform";
 import { isAndroid } from "tns-core-modules/platform";
 import { Item, Category } from "../shared/models/eody.model";
 import { DataService } from "../shared/data.service";
-import { RouterExtensions } from "nativescript-angular";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Page } from "tns-core-modules/ui/page/page";
 
@@ -46,29 +45,21 @@ export class InformationComponent implements OnInit {
     constructor(private activeRoute: ActivatedRoute,
         private page: Page,
         private router: Router,
-        private routerExtensions: RouterExtensions,
         private dataService: DataService) {
         this.actionAndroid = isAndroid;
         this.items = this.dataService.getItems();
         this.categories = this.dataService.getCategories();
     }
+    showEody() {
+        this.router.navigate(["information/infodetails/",
+        { relativeTo: this.activeRoute }
+        ]);
 
+    }
     showItem(itemId) {
-        console.log(`Tapped on ${itemId}`);
-        console.log(this.activeRoute);
-        console.log(this.activeRoute.routeConfig);
-        // this.page.nativeView("infodetails");
-        console.log("!!!!!!!!!", this.router.url );
-        this.router.navigate(["information/detail/" + itemId, 
-            { relativeTo: this.activeRoute },
-            // {
-            //     animated: true,
-            //     transition: {
-            //         name: "slideTop",
-            //         duration: 380,
-            //         curve: "easeIn"
-            //     }
-            // }
+
+        this.router.navigate(["information/detail/" + itemId,
+        { relativeTo: this.activeRoute },
         ]);
     }
 

@@ -5,6 +5,10 @@ import { PageRoute } from "nativescript-angular/router";
 import { Item } from "~/app/shared/models/eody.model";
 import { Page } from "tns-core-modules/ui/page/page";
 import { DataService } from "~/app/shared/data.service";
+import * as application from "tns-core-modules/application";
+import { AndroidApplication, AndroidActivityBackPressedEventData } from "tns-core-modules/application";
+import { isAndroid } from "tns-core-modules/platform";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
     selector: "EodyDetail",
@@ -21,13 +25,11 @@ export class EodyDetailComponent implements OnInit {
     constructor(
         private pageRoute: PageRoute,
         private routerExtensions: RouterExtensions,
+        private activeRoute: ActivatedRoute,
         private page: Page,
         private dataService: DataService) {
-        console.log("######################## bmpike")
         this.items = this.dataService.getItems();        
-
         this.page.actionBarHidden = false;
-
         this.pageRoute.activatedRoute.pipe(
             switchMap(activatedRoute => activatedRoute.params)
         ).forEach((params) => {
@@ -37,6 +39,19 @@ export class EodyDetailComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        if (!isAndroid) {
+            return;
+          }
+          application.android.on(AndroidApplication.activityBackPressedEvent, (data: AndroidActivityBackPressedEventData) => {
+           // if (this.routerExtensions.router.isActive("information/infodetails/", false)) {
+              data.cancel = true; // prevents default back button behavior
+
+              this.routerExtensions.router.navigate(["../tabs/default/",
+              { relativeTo: this.activeRoute }
+              ]);
+      
+            //}
+          });
     }
 
     toggleLike() {
@@ -51,27 +66,6 @@ export class EodyDetailComponent implements OnInit {
     toggleHeart(item) {
         item.isFavorite = !item.isFavorite;
     }
-
-    categoryIcon() {
-        switch (this.item.categoryTag) {
-            case "Burger":
-                return String.fromCharCode(0xf0f5); //"fa-cutlery";
-                break;
-            case "Beer":
-                return String.fromCharCode(0xf0fc); //"fa-beer";
-                break;
-            case "Pancake":
-                return String.fromCharCode(0xf0f4); //"fa-coffee";
-                break;
-            case "Cake":
-                return String.fromCharCode(0xf1fd); //"fa-birthday-cake";
-                break;
-            default:
-                return String.fromCharCode(0xf06d); //"fa-fire";
-                break;
-        }
-    }
-
     onCloseTap(): void {
         this.routerExtensions.back();
     }

@@ -1,42 +1,27 @@
-<!-- <ActionBar >
-  <StackLayout orientation="horizontal"
-    ios:horizontalAlignment="center"
-    android:horizontalAlignment="left">
-    <Label text="Civil Protection Korydallos" class="action-label"></Label>
-  </StackLayout>
-</ActionBar> -->
-<BottomNavigation selectedIndex="4">
-
-    <!-- The bottom tab UI is created via TabStrip (the container) and TabStripItem (for each tab)-->
+<BottomNavigation [selectedIndex]="data.getActiveTab()" (selectedIndexChanged)="onSelectedIndexChanged($event)">
     <TabStrip>
         <TabStripItem class="navigation__item">
             <Label text="Κεντρική"></Label>
             <Image src="~/app/assets/images/home-solid.png" class="fas"></Image>
-            <!-- <Image src="font://&#xf015;" class="las"></Image> -->
         </TabStripItem>
         <TabStripItem class="navigation__item">
             <Label text="Ενημέρωση"></Label>
             <Image src="~/app/assets/images/rss-solid.png" class="fas"></Image>
-            <!-- <Image src="font://&#xf09e;" class="fas"></Image> -->
         </TabStripItem>
         <TabStripItem class="navigation__item">
             <Label text="Κοντά σου"></Label>
             <Image src="~/app/assets/images/map-marked-solid.png" class="fas"></Image>
-            <!-- <Image src="font://&#xf279;" class="fas"></Image> -->
         </TabStripItem>
         <TabStripItem class="navigation__item">
             <Label text="Πληροφορίες"></Label>
             <Image src="~/app/assets/images/info-circle-solid.png" class="fas"></Image>
-            <!-- <Image src="font://&#xf129;" class="fas"></Image> -->
         </TabStripItem>
         <TabStripItem class="navigation__item">
             <Label text="Βοήθεια"></Label>
             <Image src="~/app/assets/images/tty-solid.png" class="fas"></Image>
-            <!-- <Image src="font://&#xf10b;" class="fas"></Image> -->
         </TabStripItem>
     </TabStrip>
 
-    <!-- The number of TabContentItem components should corespond to the number of TabStripItem components -->
     <TabContentItem>
         <page-router-outlet name="homeTab" ></page-router-outlet>
     </TabContentItem>

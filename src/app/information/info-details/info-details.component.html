@@ -1,1 +1,53 @@
-<label text="Welcome to info details"></label>
+<ActionBar>
+    <StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
+        <Label text="Πολιτική Προστασία Δήμος Κορυδαλλού" class="action-label"></Label>
+        <Image src="res://nativescript_logo" class="action-image"></Image>
+    </StackLayout>
+</ActionBar>
+<StackLayout class="main">
+
+    <GridLayout class="anim-cover" rows="auto" columns="*">
+        <Image row="0" col="0" height="180" stretch="aspectFill" class="card-img"
+            src="~/app/assets/images/stayhome-754x450.png"></Image>
+        <Label row="0" col="0" verticalAlignment="top" horizontalAlignment="left" (tap)="onCloseTap()" fontSize="24"
+            text="&#xf060;" class="fa close">
+        </Label>
+    </GridLayout>
+
+    <!-- 
+    <ScrollView class="anim-images" orientation="horizontal">
+        <StackLayout orientation="horizontal" class="">
+            <GridLayout *ngFor="let imageString of item.images" rows="auto"
+                columns="*">
+                <Image class="card-img-thumb" row="0" col="0" [src]="imageString"
+                    stretch="aspectFill"></Image>
+                </GridLayout>
+        </StackLayout>
+    </ScrollView> -->
+
+    <StackLayout width="100%" class="lineBreak anim-likes"></StackLayout>
+
+    <Gridlayout rows="*" class="content anim-content" marginTop="15">
+        <StackLayout row="1">
+            <HtmlView stye="padding-left:20" editable="false" class="description-value" textWrap="true"
+                [html]="'<h3>Οδηγίες για το κοινό</h3>'">
+            </HtmlView>
+            <ScrollView>
+                <StackLayout verticalAlignment="top" horizontalAlignment="left">
+                    <button class="btn" text="Οδηγίες προφύλαξης για το κοινό" (tap)="openUrl('https://eody.gov.gr/loimoxi-apo-to-neo-koronoio-covid-19-odigies-profylaxis-gia-to-koino/')"></button>
+                    <button class="btn" text="Ερωτήσεις και απαντήσεις για το νέο κορωνοϊό COVID-19" (tap)="openUrl('https://eody.gov.gr/erotiseis-kai-apantiseis-gia-to-neo-koronoio-covid-19/')"></button>
+                    <button class="btn" text="Οδηγίες για απομόνωση επαφών στο σπίτι" (tap)="openUrl('https://eody.gov.gr/odigies-gia-apomonosi-epafon-sto-spiti/')"></button>
+                    <button class="btn" text="Οδηγίες για παραμονή παιδιών και εφήβων στο σπίτι" (tap)="openUrl('https://eody.gov.gr/odigies-gia-paramoni-paidion-kai-efivon-sto-spiti/')"></button>
+                    <button class="btn" text="Υγιεινή των χεριών" (tap)="openUrl('https://eody.gov.gr/mikroviaki-antochi-kai-loimoxeis-poy-syndeontai-me-choroys-parochis-ygeias/exonosokomeiako-perivallon-koinotita/ygieini-ton-cherion-plirofories-gia-to-koino/')"></button>
+                    <button class="btn" text="Οδηγίες για φροντίδα ύποπτου κρούσματος στο σπίτι"  (tap)="openUrl('https://eody.gov.gr/neos-koronoios-covid-19-odigies-gia-frontida-ypoptoy-kroysmatos-sto-spiti/')"></button>
+                    <button class="btn" text="Οδηγίες για ευπαθείς ομάδες" (tap)="openUrl('https://eody.gov.gr/loimoxi-apo-to-neo-koronoio-covid-19-odigies-gia-eypatheis-omades/')"></button>
+                    <button class="btn" text="ΤΡΟΦΙΜΑ και SARS–CoV-2" (tap)="openUrl('https://eody.gov.gr/covid-19-asfali-trofima/')"></button>
+                    <button class="btn" text="Οδηγίες προστασίας των ατόμων με Σακχαρώδη Διαβήτη από τον κορωνοϊό" (tap)="openUrl('https://www.ede.gr/%CE%B5%CF%80%CE%B9%CE%BA%CE%B1%CE%B9%CF%81%CE%BF%CF%80%CE%BF%CE%B9%CE%B7%CE%BC%CE%AD%CE%BD%CE%B5%CF%82-%CE%BF%CE%B4%CE%B7%CE%B3%CE%AF%CE%B5%CF%82-%CF%84%CE%B7%CF%82-%CE%B5%CE%B4%CE%B5-%CE%B3%CE%B9/')"></button>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+
+
+    </Gridlayout>
+
+</StackLayout>

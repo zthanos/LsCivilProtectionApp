@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular/router";
 import { ActivatedRoute } from "@angular/router";
 import { SelectedIndexChangedEventData } from "tns-core-modules/ui/tab-view/tab-view";
+import { DataService } from "../shared/data.service";
 
 @Component({
     moduleId: module.id,
@@ -13,7 +14,8 @@ import { SelectedIndexChangedEventData } from "tns-core-modules/ui/tab-view/tab-
 export class TabNavigationComponent implements OnInit {
     constructor(
         private routerExtension: RouterExtensions,
-        private activeRoute: ActivatedRoute) {
+        private activeRoute: ActivatedRoute,
+        public data: DataService) {
     }
 
     ngOnInit() {
@@ -31,7 +33,7 @@ export class TabNavigationComponent implements OnInit {
     }
 
     onSelectedIndexChanged(args: SelectedIndexChangedEventData): void {
-        //console.log(`Selected index has changed ( Old index: ${args.oldIndex} New index: ${args.newIndex} )`);
+        this.data.setTabIndex(args.newIndex);
     }
 
 }

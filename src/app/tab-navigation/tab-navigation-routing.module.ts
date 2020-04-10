@@ -5,12 +5,8 @@ import { NativeScriptRouterModule, NSEmptyOutletComponent } from "nativescript-a
 import { TabNavigationComponent } from "./tab-navigation.component";
 
 const routes: Routes = [
-      
-
     {
-        
         path: "default", component: TabNavigationComponent, children: [ 
-                  
             {
                 path: "home",
                 component: NSEmptyOutletComponent,

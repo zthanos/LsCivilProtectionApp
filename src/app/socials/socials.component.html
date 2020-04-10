@@ -17,7 +17,7 @@
                     <Image col="0" class="profile-image" col="0" src="{{ item.profileUrl }}" height="50">
                     </Image>
                     <StackLayout col="1">
-                        <Label text="{{ item.originalMessage  }}" class="emy-emy_hnms-1" textWrap="true"></Label>
+                        <HtmlView html="{{ item.originalMessage  }}" class="emy-emy_hnms-1" textWrap="true"></HtmlView>
                         <Image *ngIf="item.displayImage == true" src="{{ item.urlToImage }}" stretch="aspectFill"
                             class="main-image"></Image>
                     </StackLayout>
