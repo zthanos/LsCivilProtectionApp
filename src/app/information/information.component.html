@@ -4,60 +4,25 @@
         <Image src="res://nativescript_logo" class="action-image"></Image>
     </StackLayout>
 </ActionBar>
-
-<StackLayout class="card">
-    <CardView ripple="true" elevation="5" radius="15" shadowRadius="5" shadowOpacity="0" margin="20">
-
-        <StackLayout class="tile" (tap)="showItem('5')">
-            <Label text="Απινιδωτές - 5 Σημεία στον Κορυδαλλό" class="emy"></Label>
-            <StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
-                <StackLayout width="120">
-                    <Image src="~/app/assets/images/korydallos_logo_new.png" width="60"
-                        style="margin-top:10;text-align: center;"></Image>
-                </StackLayout>
-
-                <StackLayout>
-                    <Label textWrap="true" text="1. Δημαρχείο Κορυδαλλού - Γρ. Λαμπράκη 240  "></Label>
-                    <Label textWrap="true" text="2. Κλειστό Γήπεδο 'Θεόδωρος Πούτος' - Σολωμού 80"></Label>
-                    <Label textWrap="true" text="3. Κλειστό Γήπεδο "></Label>
-                    <Label textWrap="true" text="4. ΕΑΚ Κορυδαλλού- Πλαταιών "></Label>
-                    <Label textWrap="true" text="5. Δημοτικό Γυμναστήριο - Κουντουριώτου 25  "></Label>
-                </StackLayout>
-            </StackLayout>
-        </StackLayout>
-    </CardView>
-
-    <CardView ripple="true" elevation="5" radius="15" shadowRadius="5" shadowOpacity="0" margin="20">
-
-        <StackLayout class="tile" (tap)="showEody()">
-            <Label text=" Νέος κορωνοϊός Covid-19 - Οδηγίες" class="emy"></Label>
-            <StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
-                <StackLayout width="120">
-                    <Image src="~/app/assets/images/eody-el.png" width="60" style="margin-top:10;text-align: center;">
-                    </Image>
-                </StackLayout>
-
-                <StackLayout>
-                    <Label textWrap="true"
-                        text="Ο Εθνικός Οργανισμός Δημόσιας Υγείας (ΕΟΔΥ), παρακολουθεί από την αρχή τις εξελίξεις και βρίσκεται σε συνεχή επικοινωνία τόσο με το Ευρωπαϊκό Κέντρο Πρόληψης και Ελέγχου Νοσημάτων (ECDC) όσο και τον Παγκόσμιο Οργανισμό Υγείας (WHO). Ο ΕΟΔΥ παραμένει σε επαγρύπνηση σχετικά με ενδεχόμενα κρούσματα της νόσου σε ταξιδιώτες ενώ έχει ήδη εκδώσει και επικαιροποιεί συστηματικά ενημερωτικό υλικό και εξειδικευμένες οδηγίες."></Label>
-                </StackLayout>
-            </StackLayout>
-        </StackLayout>
-    </CardView>
-
-</StackLayout>
-
-
-<!-- <GridLayout width="100%" backgroundColor="white">
-    <ListView #listview [items]="items" separatorColor="transparent">
-        <ng-template let-item="item">
-            <StackLayout class="main">
-                <StackLayout class="content">
-                    <Image stretch="aspectFill" class="card-img" (tap)="showItem(item.id)" [src]="item.cover">
-                    </Image>
-                </StackLayout>
-
-            </StackLayout>
-        </ng-template>
-    </ListView>
-</GridLayout> -->
+<GridLayout (swipe)="onSwipe($event)">
+	<GridLayout rows="3*, *">
+		<GridLayout row="0" rows="*" class="m-t-20">
+			<ContentView #slideContent row="0" id="slide-content">
+				<GridLayout row="0" rows="*">
+					<Label class="opensans-semi-bold carousel-loading" text="Loading..." textWrap="true"></Label>
+				</GridLayout>
+			</ContentView>
+		</GridLayout>
+		<GridLayout row="2" rows="auto, auto">
+			<GridLayout row="0" rows="*" columns="*, auto, auto, *" id="carousel-slider" class="m-b-20">
+				<StackLayout [ngClass]="getSliderItemClass(0)" verticalAlignment="top" col="0" horizontalAlignment="right"></StackLayout>
+				<StackLayout [ngClass]="getSliderItemClass(1)" style="margin: 0 5" verticalAlignment="top" col="1" horizontalAlignment="center"></StackLayout>
+				<StackLayout [ngClass]="getSliderItemClass(2)"  style="margin: 0 5" verticalAlignment="top" col="2" horizontalAlignment="left"></StackLayout>
+				<StackLayout [ngClass]="getSliderItemClass(3)" verticalAlignment="top" col="3" horizontalAlignment="left"></StackLayout>
+			</GridLayout>
+			<GridLayout row="1" rows="auto" verticalAlignment="bottom" class="m-t-10">
+				<Button text="Περισσότερες Πληροφορίες" class="opensans-semi-bold skip-intro" (tap)="skipIntro()"></Button>
+			</GridLayout>
+		</GridLayout>
+	</GridLayout>
+</GridLayout>

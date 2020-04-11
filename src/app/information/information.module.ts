@@ -5,6 +5,7 @@ import { InformationRoutingModule } from "./information-routing.module";
 import { InformationComponent } from "./information.component";
 import { EodyDetailComponent } from "./details/eody-details.component";
 import { InfoDetailsComponent } from "./info-details/info-details.component";
+import { InfoSlidesService } from "./info-slides.service";
 
 @NgModule({
     imports: [
@@ -16,6 +17,7 @@ import { InfoDetailsComponent } from "./info-details/info-details.component";
         EodyDetailComponent,
         InfoDetailsComponent
     ],
+    providers:[InfoSlidesService],
     schemas: [
         NO_ERRORS_SCHEMA
     ]
