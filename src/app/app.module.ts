@@ -28,6 +28,7 @@ import { TabNavigationModule } from "./tab-navigation/tab-navigation.module";
 import { NSModuleFactoryLoader } from "nativescript-angular";
 import { enable as traceEnable, addCategories } from "tns-core-modules/trace";
 
+
 traceEnable();
 
 export class MyErrorHandler implements ErrorHandler {

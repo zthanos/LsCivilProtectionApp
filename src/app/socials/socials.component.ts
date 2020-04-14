@@ -31,26 +31,27 @@ export class SocialsComponent implements OnInit {
 
     ngOnInit(): void {
         this.news = [];
-        sampleTweets.data.forEach(t => {
-                const nf = <NewsFeed>{
-                    author: t.UserDetails.FullName,
-                    profileUrl: t.UserDetails.ProfileImageUrl,
-                    userName: t.UserDetails.UserName,
-                    title: t.UserDetails.UserName,
-                    description: t.TweetText,
-                    urlToImage: t.MediaUrls[0],
-                    url: "",
-                    originalMessage: t.OriginalTweet?t.OriginalTweet.TweetText:t.TweetText,
-                    displayImage: t.MediaUrls.length > 0,
-                    sourceType: SourceType.Twitter,
-                    publishedAt: t.CreatedAt,
-                    source: <Source>{ id: t.TweetId, name: t.UserDetails.FullName }
-                };
-                this.news.push(nf);
-            });
-        // this.restApi.getTweets().subscribe(s=> {
-        //     this.news = s
-        // });
+        // sampleTweets.data.forEach(t => {
+        //         const nf = <NewsFeed>{
+        //             author: t.UserDetails.FullName,
+        //             profileUrl: t.UserDetails.ProfileImageUrl,
+        //             userName: t.UserDetails.UserName,
+        //             title: t.UserDetails.UserName,
+        //             description: t.TweetText,
+        //             urlToImage: t.MediaUrls[0],
+        //             url: "",
+        //             originalMessage: t.OriginalTweet?t.OriginalTweet.TweetText:t.TweetText,
+        //             displayImage: t.MediaUrls.length > 0,
+        //             sourceType: SourceType.Twitter,
+        //             publishedAt: t.CreatedAt,
+        //             source: <Source>{ id: t.TweetId, name: t.UserDetails.FullName }
+        //         };
+        //         this.news.push(nf);
+        //     });
+
+        this.restApi.getTweets().subscribe(s=> {
+            this.news = s
+        });
         // Use the "ngOnInit" handler to initialize data for the view.
     }
 

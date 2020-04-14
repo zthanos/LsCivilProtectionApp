@@ -5,12 +5,9 @@ import { Item, Category } from "./models/eody.model";
 export class DataService {
     private currentTabIndex : number = 0;
     setTabIndex(idx : number):void {
-        console.log('set active index : ',idx);
-
         this.currentTabIndex = idx;
     }
     getActiveTab():number {
-        console.log('get active index : ',this.currentTabIndex);
         return this.currentTabIndex;
     }
 

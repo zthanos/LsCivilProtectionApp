@@ -1,7 +1,7 @@
 <ActionBar>
     <StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
-        <Label text="Πολιτική Προστασία Δήμος Κορυδαλλού" class="action-label"></Label>
-        <Image src="res://nativescript_logo" class="action-image"></Image>
+        <Label text="Πολιτική Προστασία Δήμος Κορυδαλλού" class="action-label" width="90%"></Label>
+        <Image src="~/app/assets/images/phone-volume-solid.png" height="20" style="text-align: right;"></Image>
     </StackLayout>
     <!-- <NavigationButton text="Go Back" android.systemIcon="ic_menu_back"></NavigationButton>
     <ActionItem ios.systemIcon="2" android.systemIcon="ic_menu_edit" ios.position="right"></ActionItem> -->
@@ -10,9 +10,14 @@
 
 <RadListView id="list-view" [items]="news" separatorColor="transparent" height="100%">
     <ng-template tkListItemTemplate let-item="item">
-        <CardView margin="10" elevation="1" shadowColor="#FFFFFF" radius = "1"  shadowRadius = "5" shadowOpacity="0">
+        <CardView margin="10" elevation="1" shadowColor="#FFFFFF" radius="1" shadowRadius="5" shadowOpacity="0">
             <StackLayout>
-                <Label text="{{ item.source.name }}" class="emy"></Label>
+               
+                <StackLayout width="100%" class="emy" orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
+                    <Label text="{{ item.source.name }}" width="90%"></Label>
+                   <Image src="~/app/assets/images/twitter.png" height="20" style="text-align: right;"></Image>
+                </StackLayout>
+               
                 <GridLayout columns="auto,*" style="padding-left:5;padding-right: 5;">
                     <Image col="0" class="profile-image" col="0" src="{{ item.profileUrl }}" height="50">
                     </Image>

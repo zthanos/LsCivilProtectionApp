@@ -100,8 +100,8 @@ export class MapMarkers {
                 id: idx,
                 lat: f.lat,
                 lng: f.lon,
-                title: f.title,
-                subtitle: 'Such an awesome little conference'
+                title: 'Απινιδοτής',
+                subtitle: f.title
             };
             markers.push(mark);
             idx++;

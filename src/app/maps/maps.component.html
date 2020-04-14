@@ -1,15 +1,23 @@
-<!-- <ActionBar>
-    <Label text="Home 1"></Label>
-</ActionBar> -->
+<ActionBar>
+    <StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
+        <Label text="Πολιτική Προστασία Δήμος Κορυδαλλού" class="action-label" width="90%"></Label>
+        <Image src="~/app/assets/images/phone-volume-solid.png" height="20" style="text-align: right;"></Image>
+    </StackLayout>
+    <!-- <NavigationButton text="Go Back" android.systemIcon="ic_menu_back"></NavigationButton>
+    <ActionItem ios.systemIcon="2" android.systemIcon="ic_menu_edit" ios.position="right"></ActionItem> -->
+</ActionBar>
 
-<GridLayout tkMainContent class="page page-content" [backgroundColor]="BackgroundColor">
-
-    <ContentView height="500" width="100%">
-        <Mapbox id="mapinmap" accessToken="pk.eyJ1IjoienRoYW5vcyIsImEiOiJjazhkaHc0bW4wdzZnM2xtam5xZ3RlOTZ0In0.-K2_SD1d9B9XIrFSRhOhBQ"
-            mapStyle="traffic_day" latitude="50.467735" longitude="13.427718" hideCompass="true" zoomLevel="12"
+<GridLayout tkMainContent class="page page-content">
+    <ContentView row="1" width="500">
+        <Mapbox #map id="mapsMap" height="100%"
+            accessToken="pk.eyJ1IjoienRoYW5vcyIsImEiOiJjazhkaHc0bW4wdzZnM2xtam5xZ3RlOTZ0In0.-K2_SD1d9B9XIrFSRhOhBQ"
+            mapStyle="traffic_day" latitude="37.977" longitude="23.650" hideCompass="false" zoomLevel="13"
             showUserLocation="false" disableZoom="false" disableRotation="false" disableScroll="false"
             disableTilt="false" (mapReady)="onMapReady($event)">
         </Mapbox>
     </ContentView>
 
+    <StackLayout class="filter-button" (tap)="onSelectTapped()">
+        <Image src="~/app/assets/images/filter-solid.png" height="24" ></Image>
+    </StackLayout>
 </GridLayout>

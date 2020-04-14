@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, forkJoin } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { NewsFeed, Source, SourceType } from './models/news-feed.model';
 import { DailyWeather } from './models/weather.model';
+import { openUrl } from 'tns-core-modules/utils/utils';
 
 
 @Injectable({
@@ -54,7 +55,7 @@ export class RestApiService {
                             Description: f.weather[0].description,
                             CurrentDate: WeatherUtils.getDateTimeString(f.dt_txt),
                             Icon: WeatherUtils.getWeatherIcon(f.weather[0].icon),
-                            Date_string: WeatherUtils.getDayOfTheWeek(f.dt),                            
+                            Date_string: WeatherUtils.getDayOfTheWeek(f.dt),
                             Temprature: Math.round(f.main.temp) + "°C"
                         } as DailyWeather;
                         if (datekey != WeatherUtils.getDateTimeString(f.dt_txt)) {
@@ -68,21 +69,94 @@ export class RestApiService {
         );
     }
 
+    getCityPolygon(): Observable<any> {
+        return this.http.get<any>('https://nominatim.openstreetmap.org/search?q= municipality of Korydallos,attiki&format=json&polygon=1');
+    }
 
+    getCityPharmacies(): Observable<any> {
+        const apiuri = 'https://nominatim.openstreetmap.org/search?q= Korydallos[pharmacies], attiki&format=json&polygon=1';
+        return this.http.get<any>(apiuri).pipe(
+            map(m => {
+                let respone = [];
+                m.forEach(f => {
+                    let item = {
+                        id: f.place_id,
+                        lat: f.lat,
+                        lng: f.lon,
+                        title: f.type,
+                        subtitle: f.display_name,
+                        icon: f.icon
+                    };
+                    respone.push(item);
+                });
+                return respone;
+            }))
+    }
+
+    getCityAmenity(amenity: string): Observable<any> {
+        
+        const apiuri = 'https://nominatim.openstreetmap.org/search?q= Korydallos['+amenity+'], attiki&format=json&polygon=1';
+        return this.http.get<any>(apiuri).pipe(
+            map(m => {
+                let respone = [];
+                m.forEach(f => {
+                    let item = {
+                        id: f.place_id,
+                        lat: f.lat,
+                        lng: f.lon,
+                        title: this.getMarkerDescription(amenity),
+                        subtitle: f.display_name,
+                        icon: '~/app/assets/images/info-circle-solid.png',
+                        iconPath: f.icon,
+                        onTap: function(f) { 
+                            console.log("This marker was tapped"); 
+                           // this.gotoGoogleMaps(f.display_name);
+                        },
+                        onCalloutTap: function(f) { console.log("The callout of this marker was tapped"); }
+                    };
+                    respone.push(item);
+                });
+                return respone;
+            }))
+    }
+
+
+    gotoGoogleMaps(address: string ){
+        //openUrl("https://www.google.com/maps/search/?api=1&query="+address);
+    }
+    getCityAmenities(amenities: string[]): Observable<any> {
+        let services = [];
+        amenities.forEach(amenity => {
+            services.push(this.getCityAmenity(amenity));
+        });
+        return forkJoin(services);
+    }
+
+    getMarkerDescription(marker:string ){
+        switch(marker){
+            case 'pharmacies' : return 'Φαραμακείο';
+            case 'banks': return 'Τράπεζα'
+            case 'supermarkets': return 'Super Market'; 
+            case 'doctors': return 'Ιατρός'; 
+            case 'police': return 'Αστυνομικό Τμήμα';
+            case 'taxi': return 'Ταξί';
+            default : return marker;
+        }
+    }
 }
 
 class WeatherUtils {
     static getWeatherIcon(code: string) {
-        return "https://openweathermap.org/img/wn/" + code.replace('n','d') + "@2x.png";
+        return "https://openweathermap.org/img/wn/" + code.replace('n', 'd') + "@2x.png";
     }
     static getDateTimeString(dt) {
         const ntstr = dt.split(' ')[0].split('-');
         return ntstr[2] + "-" + ntstr[1] + "-" + ntstr[0]
     }
 
-    static getDayOfTheWeek(dt:any){
-        var days = ['Κυρ','Δευ','Τρι','Τετ','Πεμ','Παρ','Σαβ'];
+    static getDayOfTheWeek(dt: any) {
+        var days = ['Κυρ', 'Δευ', 'Τρι', 'Τετ', 'Πεμ', 'Παρ', 'Σαβ'];
         const d = new Date(dt * 1000);
-        return days[d.getDay()];    
+        return days[d.getDay()];
     }
 }
