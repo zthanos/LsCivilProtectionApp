@@ -28,7 +28,7 @@ export class InfoSlidesService {
     private slide3 = this.slideCreator('Νέος κορωνοϊός Covid-19',
                                        'Οδηγίες για το κοινό.',
                                        '~/app/assets/images/stayhome1.png');
-    private slide4 = this.slideCreator('Δασικές πυρκαγίες',
+    private slide4 = this.slideCreator('Δασικές πυρκαγιές',
                                        'Τι πρέπει να κάνουμε σε περίπτωση πυρκαγιάς.',
                                        '~/app/assets/images/fires.png');
     private slide5 = this.slideCreator('Σεισμός',

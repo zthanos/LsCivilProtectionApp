@@ -44,7 +44,8 @@ export class RestApiService {
     }
 
     getWeather(): Observable<DailyWeather[]> {
-        const apiuri = "https://api.openweathermap.org/data/2.5/forecast?q=korydallos,gr&appid=1987914432fb4a4dec6a7505daa91d45&lang=el&units=metric"
+//        const apiuri = "https://api.openweathermap.org/data/2.5/forecast?q=korydallos,gr&appid=1987914432fb4a4dec6a7505daa91d45&lang=el&units=metric"
+        const apiuri = "https://api.openweathermap.org/data/2.5/forecast?lat=37.977&lon=23.650&appid=1987914432fb4a4dec6a7505daa91d45&lang=el&units=metric";
         return this.http.get<any>(apiuri).pipe(
             map(r => {
                 let datekey = "";

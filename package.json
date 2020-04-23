@@ -8,7 +8,7 @@
       "version": "6.5.0"
     }
   },
-  "description": "Civil Protection Application for Municipalities",
+  "description": "Η εφαρμογή Πολιτικής Προστασίας του Δήμου Κορυδαλλού",
   "license": "SEE LICENSE IN <your-license-filename>",
   "repository": "<fill-your-repository-here>",
   "scripts": {
@@ -63,5 +63,5 @@
   },
   "gitHead": "2250137db8c1e0bd0eb543e8e4563cb71480c00d",
   "readme": "NativeScript Application",
-  "author": "LeaderSoft Solutions"
+  "author": "Δήμος Κορυδαλλού"
 }
