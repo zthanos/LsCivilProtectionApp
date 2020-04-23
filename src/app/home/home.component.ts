@@ -100,12 +100,21 @@ export class MapMarkers {
                 id: idx,
                 lat: f.lat,
                 lng: f.lon,
-                title: 'Απινιδοτής',
+                title: 'Απινιδωτής',
                 subtitle: f.title
             };
             markers.push(mark);
             idx++;
         });
+        const wifimark = {
+            id: 6,
+            lat:  37.9809,
+            lng: 23.6459,
+            title: 'Σημεία Ασύρματης Πρόσβασης',
+            subtitle: 'Το ασύρματο δίκτυο Wifi προσφέρει στους πολίτες του Κορυδαλλού τη δυνατότητα δωρεάν περιήγησης στο διαδύκτιο'
+        };
+        markers.push(wifimark);
+
         return markers;
     }
     static getPolylines(): any[] {

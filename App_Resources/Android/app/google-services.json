@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "242018132202",
+    "firebase_url": "https://api-9190278472337403148-485698.firebaseio.com",
+    "project_id": "api-9190278472337403148-485698",
+    "storage_bucket": "api-9190278472337403148-485698.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:242018132202:android:18e0197a8f2d61a7a1f793",
+        "android_client_info": {
+          "package_name": "gr.leadersoft.civilprotectionapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "242018132202-40kisgn0hrnpjhjd4q7l168s3ep21lhv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiHJgj-9XAAzfpaFkG9pqQ6PAbd5bZcoM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "242018132202-40kisgn0hrnpjhjd4q7l168s3ep21lhv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -95,7 +95,7 @@ export class RestApiService {
 
     getCityAmenity(amenity: string): Observable<any> {
         
-        const apiuri = 'https://nominatim.openstreetmap.org/search?q= Korydallos['+amenity+'], attiki&format=json&polygon=1';
+        const apiuri = 'https://nominatim.openstreetmap.org/search?q=Korydallos['+amenity+'], attiki&format=json&polygon=1';
         return this.http.get<any>(apiuri).pipe(
             map(m => {
                 let respone = [];
@@ -106,8 +106,9 @@ export class RestApiService {
                         lng: f.lon,
                         title: this.getMarkerDescription(amenity),
                         subtitle: f.display_name,
-                        icon: '~/app/assets/images/info-circle-solid.png',
-                        iconPath: f.icon,
+                        color:'green',    
+                        //icon: 'pharmacy-512.png',
+                        iconPath: '~/app/assets/images/pharmacy-512.png',
                         onTap: function(f) { 
                             console.log("This marker was tapped"); 
                            // this.gotoGoogleMaps(f.display_name);
@@ -134,7 +135,7 @@ export class RestApiService {
 
     getMarkerDescription(marker:string ){
         switch(marker){
-            case 'pharmacies' : return 'Φαραμακείο';
+            case 'pharmacies' : return 'Φαρμακείο';
             case 'banks': return 'Τράπεζα'
             case 'supermarkets': return 'Super Market'; 
             case 'doctors': return 'Ιατρός'; 

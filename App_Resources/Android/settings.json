@@ -1,5 +1,5 @@
 {
   "appId": "gr.leadersoft.civilprotectionapp",
-  "minSdkVersion": 28,
+  "minSdkVersion": 25,
   "targetSdkVersion": 28
 }

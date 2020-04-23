@@ -13,6 +13,7 @@ import * as fs from "tns-core-modules/file-system";
 import * as builder from "tns-core-modules/ui/builder";
 import { RouterExtensions } from "nativescript-angular";
 import { InfoSlidesService } from "./info-slides.service";
+import { Builder } from "tns-core-modules/ui/builder";
 
 declare var android: any;
 
@@ -37,8 +38,8 @@ export class InformationComponent implements OnInit {
         private page: Page,
         private nav: RouterExtensions,
         private slidesService: InfoSlidesService,
-        private router : Router,
-        private activeRoute : ActivatedRoute
+        private router: Router,
+        private activeRoute: ActivatedRoute
     ) {
         this.screenWidth = screen.mainScreen.widthDIPs;
 
@@ -84,7 +85,7 @@ export class InformationComponent implements OnInit {
         return new Promise(function (resolve, reject) {
             const slideViews = []
             slides.forEach((slide, i) => {
-                slideViews.push(builder.parse(slide))
+                slideViews.push(Builder.parse(slide))
             });
 
             resolve(slideViews);
@@ -92,18 +93,20 @@ export class InformationComponent implements OnInit {
     }
 
     skipIntro() {
-        switch(this.currentSlideNum){
-            case 0: this.showItem(5);   
+        switch (this.currentSlideNum) {
+            case 0: this.showItem(5);
                 break;
-            case 1: this.showEody();
+            case 1: this.showItem(6);
                 break;
-            case 2: this.showItem(3);
+            case 2: this.showEody();
                 break;
-            case 3: this.showItem(2);
+            case 3: this.showItem(3);
+                break;
+            case 4: this.showItem(2);
                 break;
         }
         // this.nav.navigate(["/home"], { clearHistory: true });
-       // this.nav.navigate(["/home"]);
+        // this.nav.navigate(["/home"]);
     }
 
     onSwipe(args: SwipeGestureEventData) {
@@ -175,7 +178,9 @@ export class InformationComponent implements OnInit {
         { relativeTo: this.activeRoute },
         ]);
     }
-
+    getButtonDescription(): string {
+        return this.currentSlideNum == 0? 'Σημεία & Οδηγίες Χρήσης' :'Περισσότερες Πληροφορίες';
+    }
 
 
 

@@ -1,33 +1,44 @@
 <ActionBar>
     <StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
         <Label text="Πολιτική Προστασία Δήμος Κορυδαλλού" class="action-label" width="90%"></Label>
-        <Image src="~/app/assets/images/phone-volume-solid.png" height="20" style="text-align: right;"></Image>
+        <Image src="~/app/assets/images/activebuttonphone.png" style="margin-right: 10;"></Image>
     </StackLayout>
 </ActionBar>
 
 <StackLayout class="page page-content">
     <Label textWrap="true" class="body m-20"
-        text="Στην Ελλάδα, το 112 λειτουργεί όλο το 24ωρο, 7 ημέρες την εβδομάδα και συνδέει τον καλούντα, ανάλογα με το περιστατικό έκτακτης ανάγκης που αυτός αναφέρει με:">
+        text="Πέρα από το τηλέφωνο του Δήμου παρακάτω μπορείτε να βρείτε τα τηλέφωνα και άλλων υπηρεσιών τις οποίες έχουμε ανάγκη ανά τακτά χρονικά διαστήματα.">
     </Label>
-
-    <GridLayout columns="auto,auto">
-        <StackLayout col="0" class="card">
-            <caller-card imageToDisplay="~/app/assets/images/korydallos_logo_new.png" buttonLabel="Δημος Κορυδαλλού"
-                numberToCall="2102990500"></caller-card>
-            <caller-card imageToDisplay="~/app/assets/images/Elas.png" buttonLabel="Αστυνομία" numberToCall="100">
-            </caller-card>
-            <caller-card imageToDisplay="~/app/assets/images/EKAB_logo.png" buttonLabel="Ε.Κ.Α.Β." numberToCall="166">
-            </caller-card>
-        </StackLayout>
-        <StackLayout col="1">
-            <caller-card imageToDisplay="~/app/assets/images/sos1056.jpg" buttonLabel="Γραμμή SOS" numberToCall="1056">
-            </caller-card>
-            <caller-card imageToDisplay="~/app/assets/images/firedep.png" buttonLabel="Πυροσβεστικό Σώμα"
-                numberToCall="199">
-            </caller-card>
-            <caller-card imageToDisplay="~/app/assets/images/Hellenic_Coast_Guard_logo.png" buttonLabel="Λυμενικό Σώμα"
-                numberToCall="1056">
-            </caller-card>
-        </StackLayout>
-    </GridLayout>
+    <Label textWrap="true" class="body m-20" style="margin-top:5px"
+        text="Σε περίπτωση έκτακτης ανάγκης μπορείτε να καλέσετε την αντίστοιχη υπηρεσία πατώντας επάνω στο εικονίδιο.">
+    </Label>
+    <ScrollView>
+        <GridLayout columns="auto,auto">
+            <StackLayout col="0" class="card">
+                <caller-card imageToDisplay="~/app/assets/images/korydallos_logo_new.png" buttonLabel="Δημος Κορυδαλλού"
+                    numberToCall="2102990500"></caller-card>
+                <caller-card imageToDisplay="~/app/assets/images/Elas.png" buttonLabel="Αστυνομία" numberToCall="100">
+                </caller-card>
+                <caller-card imageToDisplay="~/app/assets/images/EKAB_logo.png" buttonLabel="Ε.Κ.Α.Β."
+                    numberToCall="166">
+                </caller-card>
+                <caller-card imageToDisplay="~/app/assets/images/gscp_logo_xoris_grammata_0.png"
+                    buttonLabel="Πολιτική Προστασία" numberToCall="2103359002">
+                </caller-card>
+            </StackLayout>
+            <StackLayout col="1">
+                <caller-card imageToDisplay="~/app/assets/images/sos1056.jpg" buttonLabel="Γραμμή SOS"
+                    numberToCall="1056">
+                </caller-card>
+                <caller-card imageToDisplay="~/app/assets/images/firedep.png" buttonLabel="Πυροσβεστικό Σώμα"
+                    numberToCall="199">
+                </caller-card>
+                <caller-card imageToDisplay="~/app/assets/images/Hellenic_Coast_Guard_logo.png"
+                    buttonLabel="Λυμενικό Σώμα" numberToCall="1056">
+                </caller-card>
+                <caller-card imageToDisplay="~/app/assets/images/eody-el.png" buttonLabel="ΕΟΔΥ" numberToCall="1135">
+                </caller-card>
+            </StackLayout>
+        </GridLayout>
+    </ScrollView>
 </StackLayout>

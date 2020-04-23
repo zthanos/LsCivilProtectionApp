@@ -29,10 +29,18 @@ export class MapsComponent implements OnInit {
   }
   onMapReady(args): void {
     this.map = args.map;
-    // this.restApi.getCityPolygon().subscribe(s => {
-    //   //this.map.addPolygon(s);
-    //   //this.map.setViewport();
-    // });
+    this.restApi.getCityPolygon().subscribe(s => {
+      //this.map.addPolygon(s);
+      this.map.setViewport({
+        bounds: {
+          north: 37.970557,
+          east: 23.6249957,
+          south: 38.0036854,
+          west: 23.6648962
+        },
+        animated: true
+      });
+    });
     this.addSelectedMarkers();
   }
 
@@ -73,10 +81,10 @@ export class MapsComponent implements OnInit {
       displayLabel: 'name',
       onConfirm: selectedItems => {
         this.zone.run(() => {
-        this.selectedItems = selectedItems;
-        this.predefinedItems = selectedItems;
-        this.map.removeMarkers();
-        this.addSelectedMarkers();   
+          this.selectedItems = selectedItems;
+          this.predefinedItems = selectedItems;
+          this.map.removeMarkers();
+          this.addSelectedMarkers();
         })
       },
       onItemSelected: selectedItem => {
