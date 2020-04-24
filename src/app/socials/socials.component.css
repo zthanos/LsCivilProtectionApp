@@ -1,0 +1,35 @@
+.emy {
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    font-family: '';
+    color: #333333;
+    text-align: center;
+    line-height: normal;
+}
+
+.main-image {
+    box-sizing: border-box;
+    font-family: 'Arial Regular', 'Arial', sans-serif;
+    color: #333333;
+    text-align: center;
+    line-height: normal;
+  }
+
+  .emy-emy_hnms-1 {
+    background-color: rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+    font-family: 'Arial Regular', 'Arial', sans-serif;
+    color: #333333;
+    text-align: left;
+    line-height: normal;
+  }
+  .profile-image {
+    width: 50px;
+    height: 50px;
+    box-sizing: border-box;
+    font-family: 'Arial Regular', 'Arial', sans-serif;
+    color: #333333;
+    text-align: center;
+    line-height: normal;
+    vertical-align: top;
+  }

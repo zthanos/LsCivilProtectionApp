@@ -1,0 +1,6 @@
+.page__content  {
+    color :  #811a1e;;
+  }
+  .icon:hover, .parent__variation--active .parent--elem {
+    background: yellow;
+  }

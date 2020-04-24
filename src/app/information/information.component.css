@@ -1,0 +1,94 @@
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+ }
+ .emy {
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    font-family: '';
+    color: #333333;
+    text-align: left;
+    line-height: normal;
+}
+.emy-emy_hnms-1 {
+    background-color: rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+    font-family: 'Arial Regular', 'Arial', sans-serif;
+    color: #333333;
+    text-align: left;
+    line-height: normal;
+  }
+
+  .btn {
+    font-size: 18;
+}
+
+/* Fonts Classes */
+.fa {
+    font-family: "FontAwesome";
+}
+
+.opensans-regular {
+    font-family: 'Open Sans', 'OpenSans-Regular';
+    font-weight: 400;
+}
+
+.opensans-semi-bold {
+    font-family: 'Open Sans', 'OpenSans-SemiBold';
+    font-weight: 600;
+
+    background-color: #811a1e;
+    color:#ffffff;
+}
+
+.lobster-regular {
+    font-family: 'Lobster', 'Lobster-Regular';
+    font-weight: 400;
+}
+.welcome-page-background {
+    background: linear-gradient(180deg, #E87401, #811a1e);
+}
+
+.caro-item-dot {
+    background: #811a1e;
+    border-radius: 6;
+    height: 12;
+    width: 12;
+}
+
+.caro-item-dot-selected {
+    opacity: .3;
+}
+  .carousel-item-head {
+    color: #E87401;
+    font-size: 36;
+    text-align: center;
+}
+
+.carousel-item-desc {
+    font-size: 15;
+    color: #FFFFFF;
+    text-align: center;          
+}
+
+.carousel-loading {
+  font-size: 20;
+  color: #FFFFFF;
+  text-align: center;    
+}
+
+.carousel-item-circle {
+  background: #ffffff;
+  width: 100%;
+  height: 100%;
+  clip-path: circle(80% at 50% 50%)
+}
+
+.carousel-item-icon {
+    font-size: 77; 
+    color: #0C7DA7;
+    text-align: center;
+    horizontal-align:center;
+    vertical-align: center;
+}
