@@ -4,32 +4,27 @@
 		<Image src="~/app/assets/images/activebuttonphone.png" style="margin-right: 10;"></Image>
 	</StackLayout>
 </ActionBar>
-<GridLayout (swipe)="onSwipe($event)">
-	<GridLayout rows="3*, *">
-		<GridLayout row="0" rows="*" class="m-t-20">
-			<ContentView #slideContent row="0" id="slide-content">
-				<GridLayout row="0" rows="*">
-					<Label class="opensans-semi-bold carousel-loading" text="Loading..." textWrap="true"></Label>
-				</GridLayout>
-			</ContentView>
-		</GridLayout>
-		<GridLayout row="2" rows="auto, auto">
-			<GridLayout row="0" rows="*" columns="*, auto, auto, auto, *" id="carousel-slider" class="m-b-20">
-				<StackLayout [ngClass]="getSliderItemClass(0)" verticalAlignment="top" col="0"
-					horizontalAlignment="right"></StackLayout>
-				<StackLayout [ngClass]="getSliderItemClass(1)" style="margin: 0 5" verticalAlignment="top" col="1"
-					horizontalAlignment="center"></StackLayout>
-				<StackLayout [ngClass]="getSliderItemClass(2)" style="margin: 0 5" verticalAlignment="top" col="2"
-					horizontalAlignment="left"></StackLayout>
-				<StackLayout [ngClass]="getSliderItemClass(2)" style="margin: 0 5" verticalAlignment="top" col="3"
-					horizontalAlignment="left"></StackLayout>
-				<StackLayout [ngClass]="getSliderItemClass(3)" verticalAlignment="top" col="4"
-					horizontalAlignment="left"></StackLayout>
-			</GridLayout>
-			<GridLayout row="1" rows="auto" verticalAlignment="bottom" class="m-t-10">
-				<Button [text]="getButtonDescription()" class="opensans-semi-bold skip-intro"
-					(tap)="skipIntro()"></Button>
-			</GridLayout>
-		</GridLayout>
-	</GridLayout>
-</GridLayout>
+
+<RadListView id="list-view" [items]="data" separatorColor="transparent" height="100%">
+    <ng-template tkListItemTemplate let-item="item">
+        <CardView margin="10" elevation="1" shadowColor="#FFFFFF" radius="1" shadowRadius="5" shadowOpacity="0" (tap)="openDetails($event)">
+            <StackLayout>
+               
+                <StackLayout width="100%" class="emy" orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
+                    <Label text="{{ item.title }}" width="90%"></Label>
+                   <!-- <Image src="{{ item.imageurl }}" height="20" style="text-align: right;"></Image> -->
+                </StackLayout>
+               
+                <GridLayout columns="auto,*" style="padding-left:5;padding-right: 5;">
+                    <!-- <Image col="0" class="profile-image" col="0" src="{{ item.imageurl }}" height="50">
+                    </Image> -->
+                    <StackLayout col="1">
+                        <HtmlView html="{{ item.description  }}" class="emy-emy_hnms-1" textWrap="true"></HtmlView>
+                        <Image src="{{ item.imageurl }}" stretch="aspectFill"
+                            class="main-image"></Image> 
+                    </StackLayout>
+                </GridLayout>
+            </StackLayout>
+        </CardView>
+    </ng-template>
+</RadListView>

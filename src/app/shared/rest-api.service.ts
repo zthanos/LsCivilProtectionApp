@@ -70,6 +70,14 @@ export class RestApiService {
         );
     }
 
+    getInformationData():Observable<any>{
+        return this.http.get<any>('https://civilprotapi.azurewebsites.net/api/v1/infomaster');
+    }
+
+    getHomePagePOIs():Observable<any>{
+        return this.http.get<any>('https://civilprotapi.azurewebsites.net/api/v1/citipois');
+    }
+
     getCityPolygon(): Observable<any> {
         return this.http.get<any>('https://nominatim.openstreetmap.org/search?q= municipality of Korydallos,attiki&format=json&polygon=1');
     }
@@ -95,7 +103,6 @@ export class RestApiService {
     }
 
     getCityAmenity(amenity: string): Observable<any> {
-        
         const apiuri = 'https://nominatim.openstreetmap.org/search?q=Korydallos['+amenity+'], attiki&format=json&polygon=1';
         return this.http.get<any>(apiuri).pipe(
             map(m => {
@@ -108,8 +115,8 @@ export class RestApiService {
                         title: this.getMarkerDescription(amenity),
                         subtitle: f.display_name,
                         color:'green',    
-                        //icon: 'pharmacy-512.png',
-                        iconPath: '~/app/assets/images/pharmacy-512.png',
+                        //icon: f.icon,
+                        //iconPath: '~/app/assets/images/pharmacy-512.png',
                         onTap: function(f) { 
                             console.log("This marker was tapped"); 
                            // this.gotoGoogleMaps(f.display_name);
@@ -133,6 +140,7 @@ export class RestApiService {
         });
         return forkJoin(services);
     }
+
 
     getMarkerDescription(marker:string ){
         switch(marker){

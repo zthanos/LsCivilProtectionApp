@@ -8,6 +8,7 @@
 </ActionBar>
 
 
+
 <RadListView id="list-view" [items]="news" separatorColor="transparent" height="100%">
     <ng-template tkListItemTemplate let-item="item">
         <CardView margin="10" elevation="1" shadowColor="#FFFFFF" radius="1" shadowRadius="5" shadowOpacity="0">
@@ -15,7 +16,8 @@
                
                 <StackLayout width="100%" class="emy" orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
                     <Label text="{{ item.source.name }}" width="90%"></Label>
-                   <Image src="~/app/assets/images/twitter.png" height="20" style="text-align: right;"></Image>
+                   <Image src="~/app/assets/images/twitter.pn
+                   g" height="20" style="text-align: right;"></Image>
                 </StackLayout>
                
                 <GridLayout columns="auto,*" style="padding-left:5;padding-right: 5;">
