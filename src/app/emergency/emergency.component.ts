@@ -3,7 +3,7 @@ import { isIOS } from "tns-core-modules/platform";
 import { isAndroid } from "tns-core-modules/platform";
 import * as TNSPhone from 'nativescript-phone'
 
-declare const IQKeyboardManager: any;
+// declare const IQKeyboardManager: any;
 
 interface DataItem {
     source: Source;
@@ -36,10 +36,10 @@ export class EmergencyComponent implements OnInit {
     constructor() {
         this.actionAndroid = isAndroid;
 
-        if (isIOS) {
-            var keyboard = IQKeyboardManager.sharedManager();
-            keyboard.shouldResignOnTouchOutside = true;
-        }
+        // if (isIOS) {
+        //     var keyboard = IQKeyboardManager.sharedManager();
+        //     keyboard.shouldResignOnTouchOutside = true;
+        // }
     }
     callPhoneNumber(numberToCall: string){
         TNSPhone.requestCallPermission('You should accept the permission to be able to make a direct phone call.')

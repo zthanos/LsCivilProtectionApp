@@ -16,9 +16,12 @@ export class TabNavigationComponent implements OnInit {
         private routerExtension: RouterExtensions,
         private activeRoute: ActivatedRoute,
         public data: DataService) {
+        console.warn('Constructor Current route : ', this.activeRoute);
+
     }
 
     ngOnInit() {
+        console.warn('Current route : ', this.activeRoute)
         this.routerExtension.navigate([
             {
                 outlets: {
@@ -26,13 +29,16 @@ export class TabNavigationComponent implements OnInit {
                     socialsTab: ["socials"],
                     emergencyTab: ["emergency"],
                     informationTab: ["information"],
-                     mapsTab: ["maps"]
+                    mapsTab: ["maps"]
                 }
             }]
             , { relativeTo: this.activeRoute });
     }
 
     onSelectedIndexChanged(args: SelectedIndexChangedEventData): void {
+        console.warn('Current route : ', this.activeRoute)
+        console.warn('Active Index  : ', args.newIndex)
+
         this.data.setTabIndex(args.newIndex);
     }
 

@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
         { index: 0, name: "Banff, AB", city: "Banff", state: "Alberta, Canada", temp: "21°C", img: "~/assets/images/backgrounds/korydallos-dimarxeio.png" },
     ];
 
+
     city = this.cities[0].city;
     state = this.cities[0].state;
     temp = this.cities[0].temp;
@@ -34,6 +35,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     constructor(private page: Page, private restapi: RestApiService) { }
 
     ngOnInit(): void {
+        console.info("home loaded")
         this.page.actionBarHidden = false;
         this.restapi.getWeather().subscribe(s => {
             this.currentDay = s[0];

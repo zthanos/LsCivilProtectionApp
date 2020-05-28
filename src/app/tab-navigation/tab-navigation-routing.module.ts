@@ -6,7 +6,7 @@ import { TabNavigationComponent } from "./tab-navigation.component";
 
 const routes: Routes = [
     {
-        path: "default", component: TabNavigationComponent, children: [ 
+        path: "default", component: TabNavigationComponent, children: [
             {
                 path: "home",
                 component: NSEmptyOutletComponent,
@@ -36,7 +36,9 @@ const routes: Routes = [
                 component: NSEmptyOutletComponent,
                 loadChildren: () => import("~/app/maps/maps.module").then((m) => m.MapsModule),
                 outlet: "mapsTab"
-            }
+            },
+            { path: '', redirectTo: '/information', pathMatch: 'full'}
+
         ]
     }
 ];

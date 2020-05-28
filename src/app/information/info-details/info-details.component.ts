@@ -7,7 +7,7 @@ import * as utils from "tns-core-modules/utils/utils";
 import * as application from "tns-core-modules/application";
 import { AndroidApplication, AndroidActivityBackPressedEventData } from "tns-core-modules/application";
 
-declare const IQKeyboardManager: any;
+//declare const IQKeyboardManager: any;
 
 
 @Component({

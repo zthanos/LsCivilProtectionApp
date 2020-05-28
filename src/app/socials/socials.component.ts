@@ -5,7 +5,7 @@ import { isIOS } from "tns-core-modules/platform";
 import { isAndroid } from "tns-core-modules/platform";
 import { AppData } from "../shared/helpers/appdata";
 import { Page } from "tns-core-modules/ui/page/page";
-declare const IQKeyboardManager: any;
+//declare const IQKeyboardManager: any;
 @Component({
     selector: "Socials",
     templateUrl: "./socials.component.html",
@@ -23,10 +23,10 @@ export class SocialsComponent implements OnInit {
         //     return e.urlToImage && e.title && e.description && e.source.name;
         // });
 
-        if (isIOS) {
-            var keyboard = IQKeyboardManager.sharedManager();
-            keyboard.shouldResignOnTouchOutside = true;
-        }
+        // if (isIOS) {
+        //     var keyboard = IQKeyboardManager.sharedManager();
+        //     keyboard.shouldResignOnTouchOutside = true;
+        // }
     }
 
     ngOnInit(): void {
