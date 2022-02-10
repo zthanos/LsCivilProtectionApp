@@ -47,7 +47,7 @@
     "nativescript-theme-core": "1.0.6",
     "nativescript-ui-calendar": "6.1.0",
     "nativescript-ui-listview": "8.1.1",
-    "node-sass": "4.13.1",
+    "node-sass": "7.0.0",
     "reflect-metadata": "0.1.13",
     "rxjs": "6.5.4",
     "rxjs-compat": "6.5.4",
